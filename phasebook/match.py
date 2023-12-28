@@ -19,9 +19,21 @@ def match(match_id):
     return {"message": msg, "elapsedTime": end - start}, 200
 
 
+## Optimized is_match function time complexity is O(n + m)
+## n = len(fave_numbers_1), m = len(fave_numbers_2)
+## optimized the old function so it runs faster on larger lists
 def is_match(fave_numbers_1, fave_numbers_2):
-    for number in fave_numbers_2:
-        if number not in fave_numbers_1:
+    ## use set function
+    set_fave_numbers_1 = set(fave_numbers_1)
+
+    for num in fave_numbers_2:
+        if num not in set_fave_numbers_1:
             return False
 
     return True
+
+##   for number in fave_numbers_2:
+##        if number not in fave_numbers_1:
+##            return False
+##
+##    return True
